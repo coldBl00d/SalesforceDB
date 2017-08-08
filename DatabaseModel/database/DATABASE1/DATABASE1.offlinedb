@@ -1,0 +1,5 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProviderSettings xmlns="http://xmlns.oracle.com/ide/hash">
+   <value n="id" v="d718f064-5aac-419d-99c4-dbbef8374455"/>
+   <value n="name" v="DATABASE1"/>
+</ProviderSettings>
