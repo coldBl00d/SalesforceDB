@@ -73,6 +73,7 @@
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
+      <onDeleteAction>NO_ACTION</onDeleteAction>
       <referenceID class="oracle.javatools.db.NameBasedID">
         <name>SALES_TEAMS_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
