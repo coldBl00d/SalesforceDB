@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<sequence xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>USERACCSEQ</name>
+  <incrementBy>1</incrementBy>
+  <minValue>1</minValue>
+  <schema>
+    <name>SALESFORCE</name>
+  </schema>
+  <startWith>1</startWith>
+</sequence>

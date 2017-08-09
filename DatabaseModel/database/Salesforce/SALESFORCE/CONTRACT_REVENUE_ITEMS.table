@@ -1,9 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>REVENUE_ITEMS</name>
+  <name>CONTRACT_REVENUE_ITEMS</name>
   <columns>
     <column>
-      <name>OPPURTUNITY_ID</name>
+      <name>CONTRACT_ID</name>
       <dataTypeUsage>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
@@ -12,7 +12,7 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>PRODUCT_ID</name>
+      <name>PROD_CODE</name>
       <dataTypeUsage>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
@@ -21,61 +21,13 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>WIN_PROB</name>
+      <name>PRICE</name>
       <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>precision</key>
-            <value class="java.lang.String">5</value>
-          </entry>
-          <entry>
-            <key>scale</key>
-            <value class="java.lang.Integer">2</value>
-          </entry>
-        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>BEST_CASE_REVENUE</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>precision</key>
-            <value class="java.lang.String">10</value>
-          </entry>
-          <entry>
-            <key>scale</key>
-            <value class="java.lang.Integer">2</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMBER</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>WORSE_CASE_REVENUE</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>precision</key>
-            <value class="java.lang.String">10</value>
-          </entry>
-          <entry>
-            <key>scale</key>
-            <value class="java.lang.Integer">2</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMBER</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
+      <notNull>true</notNull>
     </column>
     <column>
       <name>QUANTITY</name>
@@ -84,36 +36,17 @@
           <typeName>NUMBER</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>OUR_PRICE</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>precision</key>
-            <value class="java.lang.String">10</value>
-          </entry>
-          <entry>
-            <key>scale</key>
-            <value class="java.lang.Integer">2</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMBER</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
+      <notNull>true</notNull>
     </column>
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.PKConstraint">
-      <name>REVENUE_ITEMS_PK</name>
+      <name>CONTRACT_REVENUE_ITEMS_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>OPPURTUNITY_ID</name>
+          <name>CONTRACT_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>REVENUE_ITEMS</name>
+            <name>CONTRACT_REVENUE_ITEMS</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
@@ -121,9 +54,9 @@
           <type>COLUMN</type>
         </columnID>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>PRODUCT_ID</name>
+          <name>PROD_CODE</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>REVENUE_ITEMS</name>
+            <name>CONTRACT_REVENUE_ITEMS</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
@@ -133,9 +66,9 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>REVENUE_ITEMS_PK</name>
+        <name>CONTRACT_REVENUE_ITEMS_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>REVENUE_ITEMS</name>
+          <name>CONTRACT_REVENUE_ITEMS</name>
           <schemaName>SALESFORCE</schemaName>
           <type>TABLE</type>
         </parent>
@@ -144,12 +77,12 @@
       </indexID>
     </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
-      <name>REVENUE_ITEMS_FK1</name>
+      <name>CONTRACT_REVENUE_ITEMS_FK1</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>OPPURTUNITY_ID</name>
+          <name>CONTRACT_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>REVENUE_ITEMS</name>
+            <name>CONTRACT_REVENUE_ITEMS</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
@@ -158,11 +91,10 @@
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
-      <onDeleteAction>CASCADE</onDeleteAction>
       <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>OPPORTUNITY_PK</name>
+        <name>CONTRACT_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>OPPORTUNITY</name>
+          <name>CONTRACTS</name>
           <schemaName>SALESFORCE</schemaName>
           <type>TABLE</type>
         </parent>
@@ -171,12 +103,12 @@
       </referenceID>
     </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
-      <name>REVENUE_ITEMS_FK2</name>
+      <name>CONTRACT_REVENUE_ITEMS_FK2</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>PRODUCT_ID</name>
+          <name>PROD_CODE</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>REVENUE_ITEMS</name>
+            <name>CONTRACT_REVENUE_ITEMS</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
@@ -185,7 +117,6 @@
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
-      <onDeleteAction>NO_ACTION</onDeleteAction>
       <referenceID class="oracle.javatools.db.NameBasedID">
         <name>PRODUCTS_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
@@ -200,14 +131,14 @@
   </constraints>
   <indexes>
     <index>
-      <name>REVENUE_ITEMS_PK</name>
+      <name>CONTRACT_REVENUE_ITEMS_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>OPPURTUNITY_ID</expressionSource>
+          <expressionSource>CONTRACT_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
         <columnExpression>
-          <expressionSource>PRODUCT_ID</expressionSource>
+          <expressionSource>PROD_CODE</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>
