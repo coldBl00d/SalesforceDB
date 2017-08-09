@@ -261,32 +261,6 @@
     </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.PKConstraint">
-      <name>OPPORTUNITY_PK</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>OPPORTUNITY</name>
-            <schemaName>SALESFORCE</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SALESFORCE</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <indexID class="oracle.javatools.db.NameBasedID">
-        <name>OPPORTUNITY_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>OPPORTUNITY</name>
-          <schemaName>SALESFORCE</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SALESFORCE</schemaName>
-        <type>INDEX</type>
-      </indexID>
-    </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
       <name>CREATOR_ID_FK</name>
       <columnIDs>
@@ -306,7 +280,7 @@
       <referenceID class="oracle.javatools.db.NameBasedID">
         <name>USERACCOUNTS_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>USER_ACCOUNTS</name>
+          <name>USERS</name>
           <schemaName>SALESFORCE</schemaName>
           <type>TABLE</type>
         </parent>
@@ -367,6 +341,32 @@
         <schemaName>SALESFORCE</schemaName>
         <type>CONSTRAINT</type>
       </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>OPPORTUNITY_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>OPPORTUNITY</name>
+            <schemaName>SALESFORCE</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SALESFORCE</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.NameBasedID">
+        <name>OPPORTUNITY_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>OPPORTUNITY</name>
+          <schemaName>SALESFORCE</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SALESFORCE</schemaName>
+        <type>INDEX</type>
+      </indexID>
     </constraint>
   </constraints>
   <indexes>

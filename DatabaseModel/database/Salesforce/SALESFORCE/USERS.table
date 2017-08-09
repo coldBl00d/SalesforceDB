@@ -1,12 +1,27 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>USER_ACCOUNTS</name>
+  <name>USERS</name>
   <columns>
     <column>
       <name>ID</name>
       <dataTypeUsage>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>U_NAME</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">30</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>true</notNull>
@@ -42,7 +57,7 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>PASSWORD</name>
+      <name>U_PASSWORD</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -130,7 +145,7 @@
         <columnID class="oracle.javatools.db.NameBasedID">
           <name>ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>USER_ACCOUNTS</name>
+            <name>USERS</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
@@ -142,7 +157,7 @@
       <indexID class="oracle.javatools.db.NameBasedID">
         <name>USERACCOUNTS_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>USER_ACCOUNTS</name>
+          <name>USERS</name>
           <schemaName>SALESFORCE</schemaName>
           <type>TABLE</type>
         </parent>
@@ -156,7 +171,7 @@
         <columnID class="oracle.javatools.db.NameBasedID">
           <name>ROLE_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>USER_ACCOUNTS</name>
+            <name>USERS</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
@@ -183,7 +198,7 @@
         <columnID class="oracle.javatools.db.NameBasedID">
           <name>SALES_TEAM_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>USER_ACCOUNTS</name>
+            <name>USERS</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
