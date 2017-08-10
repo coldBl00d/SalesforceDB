@@ -45,7 +45,7 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>COLUMN1</name>
+      <name>DESCRIPTION</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>

@@ -72,15 +72,6 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>ACCOUNT_ID</name>
-      <dataTypeUsage>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMBER</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-    </column>
-    <column>
       <name>DEPARTMENT_NAME</name>
       <dataTypeUsage>
         <attributeValues>
@@ -182,33 +173,6 @@
         <schemaName>SALESFORCE</schemaName>
         <type>INDEX</type>
       </indexID>
-    </constraint>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>CONTACT_ACCOUNTID_FK</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>ACCOUNT_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>CONTACTS</name>
-            <schemaName>SALESFORCE</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SALESFORCE</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <onDeleteAction>CASCADE</onDeleteAction>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>CUSTOMER_ACCOUNT_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>CUSTOMER_ACCOUNTS</name>
-          <schemaName>SALESFORCE</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SALESFORCE</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
     </constraint>
   </constraints>
   <indexes>

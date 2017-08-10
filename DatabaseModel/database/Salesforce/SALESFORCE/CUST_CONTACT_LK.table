@@ -1,9 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>OPPERTUNITY_NOTE</name>
+  <name>CUST_CONTACT_LK</name>
   <columns>
     <column>
-      <name>OPPORTUNITY_ID</name>
+      <name>ACC_ID</name>
       <dataTypeUsage>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
@@ -12,7 +12,16 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>NOTE_ID</name>
+      <name>CONTACT_ID</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>PRIMARY</name>
       <dataTypeUsage>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
@@ -23,12 +32,12 @@
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.PKConstraint">
-      <name>OPPERTUNITY_NOTE_PK</name>
+      <name>CUST_CONTACT_LK_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>OPPORTUNITY_ID</name>
+          <name>ACC_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>OPPERTUNITY_NOTE</name>
+            <name>CUST_CONTACT_LK</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
@@ -36,9 +45,9 @@
           <type>COLUMN</type>
         </columnID>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>NOTE_ID</name>
+          <name>CONTACT_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>OPPERTUNITY_NOTE</name>
+            <name>CUST_CONTACT_LK</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
@@ -48,9 +57,9 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>OPPERTUNITY_NOTE_PK</name>
+        <name>CUST_CONTACT_LK_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>OPPERTUNITY_NOTE</name>
+          <name>CUST_CONTACT_LK</name>
           <schemaName>SALESFORCE</schemaName>
           <type>TABLE</type>
         </parent>
@@ -59,12 +68,12 @@
       </indexID>
     </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
-      <name>OPPERTUNITY_NOTE_FK1</name>
+      <name>CUST_CONTACT_LK_FK1</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>OPPORTUNITY_ID</name>
+          <name>ACC_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>OPPERTUNITY_NOTE</name>
+            <name>CUST_CONTACT_LK</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
@@ -73,11 +82,11 @@
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
-      <onDeleteAction>NO_ACTION</onDeleteAction>
+      <onDeleteAction>CASCADE</onDeleteAction>
       <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>OPPORTUNITY_PK</name>
+        <name>CUSTOMER_ACCOUNT_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>OPPORTUNITY</name>
+          <name>CUSTOMER_ACCOUNTS</name>
           <schemaName>SALESFORCE</schemaName>
           <type>TABLE</type>
         </parent>
@@ -86,12 +95,12 @@
       </referenceID>
     </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
-      <name>OPPERTUNITY_NOTE_FK2</name>
+      <name>CUST_CONTACT_LK_FK2</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>NOTE_ID</name>
+          <name>CONTACT_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>OPPERTUNITY_NOTE</name>
+            <name>CUST_CONTACT_LK</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
@@ -100,11 +109,11 @@
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
-      <onDeleteAction>NO_ACTION</onDeleteAction>
+      <onDeleteAction>CASCADE</onDeleteAction>
       <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>NOTES_PK</name>
+        <name>CONTACTS_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>NOTES</name>
+          <name>CONTACTS</name>
           <schemaName>SALESFORCE</schemaName>
           <type>TABLE</type>
         </parent>
@@ -115,14 +124,14 @@
   </constraints>
   <indexes>
     <index>
-      <name>OPPERTUNITY_NOTE_PK</name>
+      <name>CUST_CONTACT_LK_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>OPPORTUNITY_ID</expressionSource>
+          <expressionSource>ACC_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
         <columnExpression>
-          <expressionSource>NOTE_ID</expressionSource>
+          <expressionSource>CONTACT_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>
