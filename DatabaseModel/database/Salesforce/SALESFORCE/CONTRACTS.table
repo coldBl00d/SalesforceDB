@@ -12,7 +12,7 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>ACC_ID</name>
+      <name>ACCOUNT_ID</name>
       <dataTypeUsage>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
@@ -21,7 +21,7 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>START_DATE</name>
+      <name>CONTRACT_START_DATE</name>
       <dataTypeUsage>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>DATE</typeName>
@@ -30,62 +30,37 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>END_DATE</name>
+      <name>CONTRACT_END_DATE</name>
       <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">20</value>
-          </entry>
-        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
+          <typeName>DATE</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>false</notNull>
     </column>
     <column>
-      <name>STATE</name>
+      <name>CONTRACT_STATE</name>
       <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">20</value>
-          </entry>
-        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
+          <typeName>NUMBER</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <default class="java.lang.String">&apos;OPEN&apos;</default>
       <notNull>true</notNull>
     </column>
     <column>
       <name>SALES_METHOD</name>
       <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">20</value>
-          </entry>
-        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
+          <typeName>NUMBER</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>false</notNull>
     </column>
     <column>
-      <name>CHANNEL</name>
+      <name>SALES_CHANNEL</name>
       <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">20</value>
-          </entry>
-        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
+          <typeName>NUMBER</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>false</notNull>
@@ -97,6 +72,7 @@
           <typeName>NUMBER</typeName>
         </dataTypeID>
       </dataTypeUsage>
+      <default class="java.lang.String">0</default>
       <notNull>false</notNull>
     </column>
     <column>
@@ -137,10 +113,91 @@
       </indexID>
     </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
+      <name>CONTRACTS_FK1</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>CONTRACT_STATE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>CONTRACTS</name>
+            <schemaName>SALESFORCE</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SALESFORCE</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <onDeleteAction>SET_NULL</onDeleteAction>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>LOOKUP_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>LOOKUP</name>
+          <schemaName>SALESFORCE</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SALESFORCE</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>CONTRACTS_FK2</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>SALES_METHOD</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>CONTRACTS</name>
+            <schemaName>SALESFORCE</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SALESFORCE</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <onDeleteAction>SET_NULL</onDeleteAction>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>LOOKUP_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>LOOKUP</name>
+          <schemaName>SALESFORCE</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SALESFORCE</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>CONTRACTS_FK3</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>SALES_CHANNEL</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>CONTRACTS</name>
+            <schemaName>SALESFORCE</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SALESFORCE</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <onDeleteAction>SET_NULL</onDeleteAction>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>LOOKUP_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>LOOKUP</name>
+          <schemaName>SALESFORCE</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SALESFORCE</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
       <name>CONTRACT_CUSTOMER_FK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>ACC_ID</name>
+          <name>ACCOUNT_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>CONTRACTS</name>
             <schemaName>SALESFORCE</schemaName>
@@ -189,6 +246,16 @@
         <schemaName>SALESFORCE</schemaName>
         <type>CONSTRAINT</type>
       </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>CONTRACTS_CHK1</name>
+      <checkCondition>CONTRACT_START_DATE &lt; CONTRACT_END_DATE</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>CONTRACTS_CHK3</name>
+      <checkCondition>REVENUE&gt;=0</checkCondition>
+      <enabled>true</enabled>
     </constraint>
   </constraints>
   <indexes>

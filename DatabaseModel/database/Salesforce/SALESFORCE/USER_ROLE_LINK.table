@@ -1,10 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>USER_INTERACTION_LINK</name>
+  <name>USER_ROLE_LINK</name>
   <columns>
     <column>
-      <name>INTERACTION_ID</name>
+      <name>ROLE_ID</name>
       <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
+          </entry>
+        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
         </dataTypeID>
@@ -14,6 +20,12 @@
     <column>
       <name>USER_ID</name>
       <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
+          </entry>
+        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
         </dataTypeID>
@@ -22,76 +34,13 @@
     </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.PKConstraint">
-      <name>USER_INTERACTION_LINK_PK</name>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>USER_ROLE_LINK_FK1</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
           <name>USER_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>USER_INTERACTION_LINK</name>
-            <schemaName>SALESFORCE</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SALESFORCE</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>INTERACTION_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>USER_INTERACTION_LINK</name>
-            <schemaName>SALESFORCE</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SALESFORCE</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <indexID class="oracle.javatools.db.NameBasedID">
-        <name>USER_INTERACTION_LINK_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>USER_INTERACTION_LINK</name>
-          <schemaName>SALESFORCE</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SALESFORCE</schemaName>
-        <type>INDEX</type>
-      </indexID>
-    </constraint>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>INTERACTION_USER_FK</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>INTERACTION_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>USER_INTERACTION_LINK</name>
-            <schemaName>SALESFORCE</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SALESFORCE</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <onDeleteAction>CASCADE</onDeleteAction>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>INTERACTIONS_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>INTERACTIONS</name>
-          <schemaName>SALESFORCE</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SALESFORCE</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
-    </constraint>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>USER_FK</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>USER_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>USER_INTERACTION_LINK</name>
+            <name>USER_ROLE_LINK</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
@@ -112,27 +61,34 @@
         <type>CONSTRAINT</type>
       </referenceID>
     </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>USER_ROLE_LINK_FK2</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>ROLE_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>USER_ROLE_LINK</name>
+            <schemaName>SALESFORCE</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SALESFORCE</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <onDeleteAction>CASCADE</onDeleteAction>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>ROLES_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>ROLES</name>
+          <schemaName>SALESFORCE</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SALESFORCE</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
   </constraints>
-  <indexes>
-    <index>
-      <name>USER_INTERACTION_LINK_PK</name>
-      <columnExpressions>
-        <columnExpression>
-          <expressionSource>USER_ID</expressionSource>
-          <orderType>ASC</orderType>
-        </columnExpression>
-        <columnExpression>
-          <expressionSource>INTERACTION_ID</expressionSource>
-          <orderType>ASC</orderType>
-        </columnExpression>
-      </columnExpressions>
-      <indexType>UNIQUE</indexType>
-      <schema>
-        <name>SALESFORCE</name>
-      </schema>
-      <systemGenerated>true</systemGenerated>
-    </index>
-  </indexes>
   <properties>
     <entry>
       <key>TableType</key>

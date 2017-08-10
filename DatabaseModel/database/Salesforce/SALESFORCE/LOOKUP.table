@@ -1,6 +1,6 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>INTERACTIONS</name>
+  <name>LOOKUP</name>
   <columns>
     <column>
       <name>ID</name>
@@ -12,12 +12,12 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>TYPE</name>
+      <name>VALUE</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">20</value>
+            <value class="java.lang.Long">255</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -27,82 +27,29 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>END_DATE</name>
-      <dataTypeUsage>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>DATE</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>START_DATE</name>
-      <dataTypeUsage>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>DATE</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>DESCRIPTION</name>
+      <name>TYPE</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">100</value>
+            <value class="java.lang.Long">255</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>VARCHAR2</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>RESOLUTION</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">100</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
+      <notNull>true</notNull>
     </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.CheckConstraint">
-      <name>INTERACTIONS_CHK1</name>
-      <checkCondition>TYPE IN ( &apos;CONFERENCE&apos; , &apos;EMAIL&apos; , &apos;PHONE&apos; , &apos;FAX&apos; , &apos;CHAT&apos; , &apos;MEETING&apos; , &apos;WEBCONFERENCE&apos; , &apos;OTHERS&apos; )</checkCondition>
-      <enabled>true</enabled>
-    </constraint>
-    <constraint class="oracle.javatools.db.CheckConstraint">
-      <name>INTERACTIONS_CHK2</name>
-      <checkCondition>START_DATE &lt; END_DATE </checkCondition>
-      <enabled>true</enabled>
-    </constraint>
-    <constraint class="oracle.javatools.db.CheckConstraint">
-      <name>INTERACTIONS_CHK3</name>
-      <checkCondition>LENGTH(DESCRIPTION) BETWEEN 1 AND 100</checkCondition>
-      <enabled>true</enabled>
-    </constraint>
-    <constraint class="oracle.javatools.db.CheckConstraint">
-      <name>INTERACTIONS_CHK4</name>
-      <checkCondition>LENGTH(RESOLUTION) BETWEEN 1 AND 100</checkCondition>
-      <enabled>true</enabled>
-    </constraint>
     <constraint class="oracle.javatools.db.PKConstraint">
-      <name>INTERACTIONS_PK</name>
+      <name>LOOKUP_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
           <name>ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>INTERACTIONS</name>
+            <name>LOOKUP</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
@@ -112,9 +59,9 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>INTERACTIONS_PK</name>
+        <name>LOOKUP_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>INTERACTIONS</name>
+          <name>LOOKUP</name>
           <schemaName>SALESFORCE</schemaName>
           <type>TABLE</type>
         </parent>
@@ -125,7 +72,7 @@
   </constraints>
   <indexes>
     <index>
-      <name>INTERACTIONS_PK</name>
+      <name>LOOKUP_PK</name>
       <columnExpressions>
         <columnExpression>
           <expressionSource>ID</expressionSource>

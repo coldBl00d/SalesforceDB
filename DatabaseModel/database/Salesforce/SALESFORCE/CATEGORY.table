@@ -3,8 +3,14 @@
   <name>CATEGORY</name>
   <columns>
     <column>
-      <name>ID</name>
+      <name>CATEGORY_ID</name>
       <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
+          </entry>
+        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
         </dataTypeID>
@@ -12,12 +18,16 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>NAME</name>
+      <name>CATEGORY_NAME</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">30</value>
+            <value class="java.lang.Long">255</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -26,13 +36,33 @@
       </dataTypeUsage>
       <notNull>true</notNull>
     </column>
+    <column>
+      <name>CATEGORY_DESCRIPTION</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1000</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <default class="java.lang.String">Not Available</default>
+      <notNull>false</notNull>
+    </column>
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.PKConstraint">
       <name>CATEGORY_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>ID</name>
+          <name>CATEGORY_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>CATEGORY</name>
             <schemaName>SALESFORCE</schemaName>
@@ -54,13 +84,18 @@
         <type>INDEX</type>
       </indexID>
     </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>CATEGORY_CHK1</name>
+      <checkCondition>LENGTH(CATEGORY_NAME) &gt; 3</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
   </constraints>
   <indexes>
     <index>
       <name>CATEGORY_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>ID</expressionSource>
+          <expressionSource>CATEGORY_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>

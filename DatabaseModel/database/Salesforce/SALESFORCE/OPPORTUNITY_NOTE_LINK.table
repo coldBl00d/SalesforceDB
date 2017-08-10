@@ -100,7 +100,7 @@
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
-      <onDeleteAction>NO_ACTION</onDeleteAction>
+      <onDeleteAction>CASCADE</onDeleteAction>
       <referenceID class="oracle.javatools.db.NameBasedID">
         <name>NOTES_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">

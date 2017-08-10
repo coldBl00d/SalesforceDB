@@ -3,8 +3,14 @@
   <name>SALES_TEAMS</name>
   <columns>
     <column>
-      <name>ID</name>
+      <name>TEAM_ID</name>
       <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
+          </entry>
+        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
         </dataTypeID>
@@ -14,6 +20,12 @@
     <column>
       <name>MANAGER_ID</name>
       <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
+          </entry>
+        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
         </dataTypeID>
@@ -21,54 +33,31 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>NAME</name>
+      <name>TEAM_NAME</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">20</value>
+            <value class="java.lang.Long">255</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>VARCHAR2</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>false</notNull>
+      <notNull>true</notNull>
     </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>MANAGER_SALES_FK</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>MANAGER_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>SALES_TEAMS</name>
-            <schemaName>SALESFORCE</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SALESFORCE</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <onDeleteAction>NO_ACTION</onDeleteAction>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>USERACCOUNTS_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>USERS</name>
-          <schemaName>SALESFORCE</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SALESFORCE</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
-    </constraint>
     <constraint class="oracle.javatools.db.PKConstraint">
       <name>SALES_TEAMS_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>ID</name>
+          <name>TEAM_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>SALES_TEAMS</name>
             <schemaName>SALESFORCE</schemaName>
@@ -90,13 +79,45 @@
         <type>INDEX</type>
       </indexID>
     </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>MANAGER_SALES_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>MANAGER_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SALES_TEAMS</name>
+            <schemaName>SALESFORCE</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SALESFORCE</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <onDeleteAction>SET_NULL</onDeleteAction>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>USERACCOUNTS_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>USERS</name>
+          <schemaName>SALESFORCE</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SALESFORCE</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>SALES_TEAMS_CHK1</name>
+      <checkCondition>LENGTH(TEAM_NAME) BETWEEN 1 AND 20</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
   </constraints>
   <indexes>
     <index>
       <name>SALES_TEAMS_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>ID</expressionSource>
+          <expressionSource>TEAM_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>

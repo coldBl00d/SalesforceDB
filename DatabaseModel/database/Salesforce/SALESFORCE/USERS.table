@@ -3,8 +3,14 @@
   <name>USERS</name>
   <columns>
     <column>
-      <name>ID</name>
+      <name>USER_ID</name>
       <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
+          </entry>
+        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
         </dataTypeID>
@@ -17,7 +23,11 @@
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">30</value>
+            <value class="java.lang.Long">255</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -25,36 +35,6 @@
         </dataTypeID>
       </dataTypeUsage>
       <notNull>true</notNull>
-    </column>
-    <column>
-      <name>REF_ID</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">20</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-    </column>
-    <column>
-      <name>MIDDLE_NAME</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">20</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
     </column>
     <column>
       <name>U_PASSWORD</name>
@@ -62,7 +42,30 @@
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">100</value>
+            <value class="java.lang.Long">255</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>USER_REF_ID</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">255</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -77,7 +80,11 @@
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">20</value>
+            <value class="java.lang.Long">255</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -92,7 +99,11 @@
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">20</value>
+            <value class="java.lang.Long">255</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -102,8 +113,48 @@
       <notNull>true</notNull>
     </column>
     <column>
+      <name>MIDDLE_NAME</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">255</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>GENDER</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
       <name>SALES_TEAM_ID</name>
       <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
+          </entry>
+        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
         </dataTypeID>
@@ -129,13 +180,19 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>ROLE_ID</name>
+      <name>ADDRESS_ID</name>
       <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
+          </entry>
+        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>true</notNull>
+      <notNull>false</notNull>
     </column>
   </columns>
   <constraints>
@@ -143,7 +200,7 @@
       <name>USERACCOUNTS_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>ID</name>
+          <name>USER_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>USERS</name>
             <schemaName>SALESFORCE</schemaName>
@@ -166,10 +223,10 @@
       </indexID>
     </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
-      <name>ROLE_FK</name>
+      <name>USERS_FK1</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>ROLE_ID</name>
+          <name>ADDRESS_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>USERS</name>
             <schemaName>SALESFORCE</schemaName>
@@ -180,11 +237,11 @@
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
-      <onDeleteAction>NO_ACTION</onDeleteAction>
+      <onDeleteAction>SET_NULL</onDeleteAction>
       <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>ROLES_PK</name>
+        <name>ADDRESS_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>ROLES</name>
+          <name>ADDRESS</name>
           <schemaName>SALESFORCE</schemaName>
           <type>TABLE</type>
         </parent>
@@ -207,7 +264,7 @@
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
-      <onDeleteAction>NO_ACTION</onDeleteAction>
+      <onDeleteAction>SET_NULL</onDeleteAction>
       <referenceID class="oracle.javatools.db.NameBasedID">
         <name>SALES_TEAMS_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
@@ -219,13 +276,18 @@
         <type>CONSTRAINT</type>
       </referenceID>
     </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>USERS_CHK1</name>
+      <checkCondition>START_DATE &lt; END_DATE</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
   </constraints>
   <indexes>
     <index>
       <name>USERACCOUNTS_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>ID</expressionSource>
+          <expressionSource>USER_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>

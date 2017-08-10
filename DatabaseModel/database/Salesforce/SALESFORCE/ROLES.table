@@ -12,12 +12,16 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>NAME</name>
+      <name>ROLE_NAME</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">20</value>
+            <value class="java.lang.Long">255</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -27,18 +31,23 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>DESCRIPTION</name>
+      <name>ROLE_DESCRIPTION</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">30</value>
+            <value class="java.lang.Long">1000</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>VARCHAR2</typeName>
         </dataTypeID>
       </dataTypeUsage>
+      <default class="java.lang.String">Not Available</default>
       <notNull>false</notNull>
     </column>
     <column>
@@ -48,7 +57,7 @@
           <typeName>DATE</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>false</notNull>
+      <notNull>true</notNull>
     </column>
     <column>
       <name>END_DATE</name>

@@ -40,6 +40,71 @@
     </column>
   </columns>
   <constraints>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>CONTRACT_REVENUE_ITEMS_CHK1</name>
+      <checkCondition>PRICE &gt;= 0
+</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>CONTRACT_REVENUE_ITEMS_CHK2</name>
+      <checkCondition>QUANTITY &gt;=0</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>CONTRACT_REVENUE_ITEMS_FK1</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>CONTRACT_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>CONTRACT_REVENUE_ITEMS</name>
+            <schemaName>SALESFORCE</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SALESFORCE</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <onDeleteAction>CASCADE</onDeleteAction>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>CONTRACT_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>CONTRACTS</name>
+          <schemaName>SALESFORCE</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SALESFORCE</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>CONTRACT_REVENUE_ITEMS_FK2</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>PROD_CODE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>CONTRACT_REVENUE_ITEMS</name>
+            <schemaName>SALESFORCE</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SALESFORCE</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <onDeleteAction>CASCADE</onDeleteAction>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>PRODUCTS_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>PRODUCTS</name>
+          <schemaName>SALESFORCE</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SALESFORCE</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
     <constraint class="oracle.javatools.db.PKConstraint">
       <name>CONTRACT_REVENUE_ITEMS_PK</name>
       <columnIDs>
@@ -75,58 +140,6 @@
         <schemaName>SALESFORCE</schemaName>
         <type>INDEX</type>
       </indexID>
-    </constraint>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>CONTRACT_REVENUE_ITEMS_FK1</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>CONTRACT_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>CONTRACT_REVENUE_ITEMS</name>
-            <schemaName>SALESFORCE</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SALESFORCE</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>CONTRACT_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>CONTRACTS</name>
-          <schemaName>SALESFORCE</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SALESFORCE</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
-    </constraint>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>CONTRACT_REVENUE_ITEMS_FK2</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>PROD_CODE</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>CONTRACT_REVENUE_ITEMS</name>
-            <schemaName>SALESFORCE</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SALESFORCE</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>PRODUCTS_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>PRODUCTS</name>
-          <schemaName>SALESFORCE</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SALESFORCE</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
     </constraint>
   </constraints>
   <indexes>

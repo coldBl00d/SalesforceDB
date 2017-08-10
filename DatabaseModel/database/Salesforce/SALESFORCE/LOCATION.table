@@ -1,9 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>NOTES</name>
+  <name>LOCATION</name>
   <columns>
     <column>
-      <name>NOTE_ID</name>
+      <name>ZIP_CODE</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -18,25 +18,27 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>NOTE_DATE</name>
-      <dataTypeUsage>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>DATE</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-    </column>
-    <column>
-      <name>NOTE_TITLE</name>
+      <name>CITY</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
             <value class="java.lang.Long">255</value>
           </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>STATE</name>
+      <dataTypeUsage>
+        <attributeValues>
           <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
+            <key>size</key>
+            <value class="java.lang.Long">255</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -46,35 +48,16 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>NOTE_CONTENT</name>
+      <name>COUNTRY</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">1000</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
+            <value class="java.lang.Long">255</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>NOTE_CREATOR_ID</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>precision</key>
-            <value class="java.lang.String">18</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMBER</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>true</notNull>
@@ -82,12 +65,12 @@
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.PKConstraint">
-      <name>NOTES_PK</name>
+      <name>LOCATION_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>NOTE_ID</name>
+          <name>ZIP_CODE</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>NOTES</name>
+            <name>LOCATION</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
@@ -97,9 +80,9 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>NOTES_PK</name>
+        <name>LOCATION_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>NOTES</name>
+          <name>LOCATION</name>
           <schemaName>SALESFORCE</schemaName>
           <type>TABLE</type>
         </parent>
@@ -107,50 +90,13 @@
         <type>INDEX</type>
       </indexID>
     </constraint>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>NOTES_FK1</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>NOTE_CREATOR_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>NOTES</name>
-            <schemaName>SALESFORCE</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SALESFORCE</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <onDeleteAction>NO_ACTION</onDeleteAction>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>USERACCOUNTS_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>USERS</name>
-          <schemaName>SALESFORCE</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SALESFORCE</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
-    </constraint>
-    <constraint class="oracle.javatools.db.CheckConstraint">
-      <name>NOTES_CHK1</name>
-      <checkCondition>LENGTH(NOTE_TITLE) BETWEEN 1 AND 50</checkCondition>
-      <enabled>true</enabled>
-    </constraint>
-    <constraint class="oracle.javatools.db.CheckConstraint">
-      <name>NOTES_CHK2</name>
-      <checkCondition>LENGTH(NOTE_CONTENT) &gt;= 0 AND LENGTH(NOTE_CONTENT) &lt;= 499</checkCondition>
-      <enabled>true</enabled>
-    </constraint>
   </constraints>
   <indexes>
     <index>
-      <name>NOTES_PK</name>
+      <name>LOCATION_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>NOTE_ID</expressionSource>
+          <expressionSource>ZIP_CODE</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>

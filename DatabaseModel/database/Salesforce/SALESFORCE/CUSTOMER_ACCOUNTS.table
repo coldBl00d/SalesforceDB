@@ -3,8 +3,14 @@
   <name>CUSTOMER_ACCOUNTS</name>
   <columns>
     <column>
-      <name>ACC_ID</name>
+      <name>ACCOUNT_ID</name>
       <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
+          </entry>
+        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
         </dataTypeID>
@@ -12,12 +18,16 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>ACC_NAME</name>
+      <name>ACCOUNT_NAME</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">30</value>
+            <value class="java.lang.Long">255</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -27,12 +37,31 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>ACC_ADDRESS</name>
+      <name>ACCOUNT_ADDRESS</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>ACCOUNT_URL</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">100</value>
+            <value class="java.lang.Long">1000</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -42,22 +71,7 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>ACC_URL</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">30</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-    </column>
-    <column>
-      <name>PARENT_ACC</name>
+      <name>PARENT_ACCOUNT_ID</name>
       <dataTypeUsage>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
@@ -71,7 +85,11 @@
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">30</value>
+            <value class="java.lang.Long">255</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -83,6 +101,12 @@
     <column>
       <name>EMP_COUNT</name>
       <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
+          </entry>
+        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
         </dataTypeID>
@@ -90,13 +114,43 @@
       <default class="java.lang.String">0</default>
       <notNull>true</notNull>
     </column>
+    <column>
+      <name>PRIMARY_ADDRESS</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>SHIPPING_ADDRESS</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.PKConstraint">
       <name>CUSTOMER_ACCOUNT_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>ACC_ID</name>
+          <name>ACCOUNT_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>CUSTOMER_ACCOUNTS</name>
             <schemaName>SALESFORCE</schemaName>
@@ -108,7 +162,7 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>CUSTOMERACCOUNT_PK</name>
+        <name>CUSTOMER_ACCOUNT_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
           <name>CUSTOMER_ACCOUNTS</name>
           <schemaName>SALESFORCE</schemaName>
@@ -118,13 +172,98 @@
         <type>INDEX</type>
       </indexID>
     </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>CUSTOMER_ACCOUNTS_FK1</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>PARENT_ACCOUNT_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>CUSTOMER_ACCOUNTS</name>
+            <schemaName>SALESFORCE</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SALESFORCE</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <onDeleteAction>NO_ACTION</onDeleteAction>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>CUSTOMER_ACCOUNT_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>CUSTOMER_ACCOUNTS</name>
+          <schemaName>SALESFORCE</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SALESFORCE</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>CUSTOMER_ACCOUNTS_FK2</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>PRIMARY_ADDRESS</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>CUSTOMER_ACCOUNTS</name>
+            <schemaName>SALESFORCE</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SALESFORCE</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <onDeleteAction>NO_ACTION</onDeleteAction>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>ADDRESS_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>ADDRESS</name>
+          <schemaName>SALESFORCE</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SALESFORCE</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>CUSTOMER_ACCOUNTS_FK3</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>SHIPPING_ADDRESS</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>CUSTOMER_ACCOUNTS</name>
+            <schemaName>SALESFORCE</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SALESFORCE</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>ADDRESS_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>ADDRESS</name>
+          <schemaName>SALESFORCE</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SALESFORCE</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>CUSTOMER_ACCOUNTS_CHK1</name>
+      <checkCondition>LENGTH(ACCOUNT_NAME) &gt; 2</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
   </constraints>
   <indexes>
     <index>
-      <name>CUSTOMERACCOUNT_PK</name>
+      <name>CUSTOMER_ACCOUNT_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>ACC_ID</expressionSource>
+          <expressionSource>ACCOUNT_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>
@@ -132,7 +271,7 @@
       <schema>
         <name>SALESFORCE</name>
       </schema>
-      <systemGenerated>true</systemGenerated>
+      <systemGenerated>false</systemGenerated>
     </index>
   </indexes>
   <properties>

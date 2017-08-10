@@ -12,12 +12,16 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>NAME</name>
+      <name>PRODUCT_NAME</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">30</value>
+            <value class="java.lang.Long">255</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -27,12 +31,16 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>DESCRIPTION</name>
+      <name>PRODUCT_DESCRIPTION</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">100</value>
+            <value class="java.lang.Long">1000</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -42,7 +50,7 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>PRICE</name>
+      <name>PRODUCT_PRICE</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -61,7 +69,7 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>CATEGORY</name>
+      <name>PRODUCT_CATEGORY</name>
       <dataTypeUsage>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
@@ -101,7 +109,7 @@
       <name>PRODUCTS_FK1</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>CATEGORY</name>
+          <name>PRODUCT_CATEGORY</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>PRODUCTS</name>
             <schemaName>SALESFORCE</schemaName>
@@ -123,6 +131,21 @@
         <schemaName>SALESFORCE</schemaName>
         <type>CONSTRAINT</type>
       </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>PRODUCTS_CHK1</name>
+      <checkCondition>PRODUCT_PRICE &gt;= 0</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>PRODUCTS_CHK2</name>
+      <checkCondition>LENGTH(PRODUCT_NAME) BETWEEN 1 AND 255</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>PRODUCTS_CHK3</name>
+      <checkCondition>LENGTH(PRODUCT_DESCRIPTION) BETWEEN 0 AND 1000</checkCondition>
+      <enabled>true</enabled>
     </constraint>
   </constraints>
   <indexes>

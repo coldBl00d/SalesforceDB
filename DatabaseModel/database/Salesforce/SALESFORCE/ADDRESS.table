@@ -1,10 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>USER_INTERACTION_LINK</name>
+  <name>ADDRESS</name>
   <columns>
     <column>
-      <name>INTERACTION_ID</name>
+      <name>ADDRESS_ID</name>
       <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
+          </entry>
+        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
         </dataTypeID>
@@ -12,8 +18,44 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>USER_ID</name>
+      <name>BUILDING_INFO</name>
       <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1000</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>STREET_NAME</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>ZIPCODE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
+          </entry>
+        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
         </dataTypeID>
@@ -23,22 +65,12 @@
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.PKConstraint">
-      <name>USER_INTERACTION_LINK_PK</name>
+      <name>ADDRESS_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>USER_ID</name>
+          <name>ADDRESS_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>USER_INTERACTION_LINK</name>
-            <schemaName>SALESFORCE</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SALESFORCE</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>INTERACTION_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>USER_INTERACTION_LINK</name>
+            <name>ADDRESS</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
@@ -48,9 +80,9 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>USER_INTERACTION_LINK_PK</name>
+        <name>ADDRESS_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>USER_INTERACTION_LINK</name>
+          <name>ADDRESS</name>
           <schemaName>SALESFORCE</schemaName>
           <type>TABLE</type>
         </parent>
@@ -59,12 +91,12 @@
       </indexID>
     </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
-      <name>INTERACTION_USER_FK</name>
+      <name>ADDRESS_FK1</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>INTERACTION_ID</name>
+          <name>ADDRESS_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>USER_INTERACTION_LINK</name>
+            <name>ADDRESS</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
@@ -73,38 +105,10 @@
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
-      <onDeleteAction>CASCADE</onDeleteAction>
       <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>INTERACTIONS_PK</name>
+        <name>LOCATION_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>INTERACTIONS</name>
-          <schemaName>SALESFORCE</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SALESFORCE</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
-    </constraint>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>USER_FK</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>USER_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>USER_INTERACTION_LINK</name>
-            <schemaName>SALESFORCE</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SALESFORCE</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <onDeleteAction>CASCADE</onDeleteAction>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>USERACCOUNTS_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>USERS</name>
+          <name>LOCATION</name>
           <schemaName>SALESFORCE</schemaName>
           <type>TABLE</type>
         </parent>
@@ -115,14 +119,10 @@
   </constraints>
   <indexes>
     <index>
-      <name>USER_INTERACTION_LINK_PK</name>
+      <name>ADDRESS_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>USER_ID</expressionSource>
-          <orderType>ASC</orderType>
-        </columnExpression>
-        <columnExpression>
-          <expressionSource>INTERACTION_ID</expressionSource>
+          <expressionSource>ADDRESS_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>

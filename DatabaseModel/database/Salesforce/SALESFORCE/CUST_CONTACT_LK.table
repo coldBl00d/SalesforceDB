@@ -31,41 +31,10 @@
     </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.PKConstraint">
-      <name>CUST_CONTACT_LK_PK</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>ACC_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>CUST_CONTACT_LK</name>
-            <schemaName>SALESFORCE</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SALESFORCE</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>CONTACT_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>CUST_CONTACT_LK</name>
-            <schemaName>SALESFORCE</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SALESFORCE</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>CUST_CONTACT_LK_CHK1</name>
+      <checkCondition>PRIMARY IN (0,1)</checkCondition>
       <enabled>true</enabled>
-      <indexID class="oracle.javatools.db.NameBasedID">
-        <name>CUST_CONTACT_LK_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>CUST_CONTACT_LK</name>
-          <schemaName>SALESFORCE</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SALESFORCE</schemaName>
-        <type>INDEX</type>
-      </indexID>
     </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
       <name>CUST_CONTACT_LK_FK1</name>
@@ -120,6 +89,42 @@
         <schemaName>SALESFORCE</schemaName>
         <type>CONSTRAINT</type>
       </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>CUST_CONTACT_LK_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>ACC_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>CUST_CONTACT_LK</name>
+            <schemaName>SALESFORCE</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SALESFORCE</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>CONTACT_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>CUST_CONTACT_LK</name>
+            <schemaName>SALESFORCE</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SALESFORCE</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.NameBasedID">
+        <name>CUST_CONTACT_LK_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>CUST_CONTACT_LK</name>
+          <schemaName>SALESFORCE</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SALESFORCE</schemaName>
+        <type>INDEX</type>
+      </indexID>
     </constraint>
   </constraints>
   <indexes>

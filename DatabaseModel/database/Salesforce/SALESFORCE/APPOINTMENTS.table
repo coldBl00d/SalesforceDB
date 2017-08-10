@@ -3,7 +3,7 @@
   <name>APPOINTMENTS</name>
   <columns>
     <column>
-      <name>ID</name>
+      <name>APPOINTMENT_ID</name>
       <dataTypeUsage>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
@@ -12,37 +12,41 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>START_DATE</name>
-      <dataTypeUsage>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>DATE</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>NAME</name>
+      <name>APPOINTMENT_NAME</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">20</value>
+            <value class="java.lang.Long">255</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>VARCHAR2</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>false</notNull>
+      <notNull>true</notNull>
     </column>
     <column>
-      <name>END_DATE</name>
+      <name>APPOINTMENT_START_TIME</name>
       <dataTypeUsage>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>DATE</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>false</notNull>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>APPOINTMENT_END_TIME</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>DATE</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
     </column>
     <column>
       <name>DESCRIPTION</name>
@@ -50,26 +54,31 @@
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">50</value>
+            <value class="java.lang.Long">1000</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>VARCHAR2</typeName>
         </dataTypeID>
       </dataTypeUsage>
+      <default class="java.lang.String">Not available</default>
       <notNull>false</notNull>
     </column>
     <column>
-      <name>LOCATION</name>
+      <name>APPOINTMENT_LOCATION</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
-            <key>size</key>
-            <value class="java.lang.Long">20</value>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
+          <typeName>NUMBER</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>true</notNull>
@@ -80,7 +89,7 @@
       <name>APPOINTMENTS_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>ID</name>
+          <name>APPOINTMENT_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>APPOINTMENTS</name>
             <schemaName>SALESFORCE</schemaName>
@@ -108,7 +117,7 @@
       <name>APPOINTMENTS_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>ID</expressionSource>
+          <expressionSource>APPOINTMENT_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>

@@ -21,7 +21,7 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>WIN_PROB</name>
+      <name>WIN_PROBABILITY</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -87,7 +87,7 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>OUR_PRICE</name>
+      <name>SETTLED_PRICE</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -196,6 +196,31 @@
         <schemaName>SALESFORCE</schemaName>
         <type>CONSTRAINT</type>
       </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>REVENUE_ITEMS_CHK1</name>
+      <checkCondition>WIN_PROBABILITY &gt;= 0 AND WIN_PROBABILITY &lt;= 100</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>REVENUE_ITEMS_CHK2</name>
+      <checkCondition>BEST_CASE_REVENUE&gt;=0 AND BEST_CASE_REVENUE &lt;=100</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>REVENUE_ITEMS_CHK3</name>
+      <checkCondition>WORSE_CASE_REVENUE&gt;=0 AND WORSE_CASE_REVENUE &lt;=100</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>REVENUE_ITEMS_CHK4</name>
+      <checkCondition>QUANTITY &gt;=0</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>REVENUE_ITEMS_CHK5</name>
+      <checkCondition>SETTLED_PRICE &gt;0</checkCondition>
+      <enabled>true</enabled>
     </constraint>
   </constraints>
   <indexes>
