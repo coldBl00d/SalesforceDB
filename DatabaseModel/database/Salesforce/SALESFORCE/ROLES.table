@@ -3,7 +3,7 @@
   <name>ROLES</name>
   <columns>
     <column>
-      <name>ID</name>
+      <name>ROLE_ID</name>
       <dataTypeUsage>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
@@ -74,7 +74,7 @@
       <name>ROLES_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>ID</name>
+          <name>ROLE_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>ROLES</name>
             <schemaName>SALESFORCE</schemaName>
@@ -102,7 +102,7 @@
       <name>ROLES_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>ID</expressionSource>
+          <expressionSource>ROLE_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>

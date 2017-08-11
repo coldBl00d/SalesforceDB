@@ -3,7 +3,7 @@
   <name>AUDIT_TABLE</name>
   <columns>
     <column>
-      <name>ID</name>
+      <name>AUDIT_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -96,32 +96,6 @@
     </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.PKConstraint">
-      <name>AUDIT_TABLE_PK</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>AUDIT_TABLE</name>
-            <schemaName>SALESFORCE</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SALESFORCE</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <indexID class="oracle.javatools.db.NameBasedID">
-        <name>AUDIT_TABLE_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>AUDIT_TABLE</name>
-          <schemaName>SALESFORCE</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SALESFORCE</schemaName>
-        <type>INDEX</type>
-      </indexID>
-    </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
       <name>AUDIT_TABLE_FK1</name>
       <columnIDs>
@@ -148,13 +122,39 @@
         <type>CONSTRAINT</type>
       </referenceID>
     </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>AUDIT_TABLE_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>AUDIT_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>AUDIT_TABLE</name>
+            <schemaName>SALESFORCE</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SALESFORCE</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.NameBasedID">
+        <name>AUDIT_TABLE_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>AUDIT_TABLE</name>
+          <schemaName>SALESFORCE</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SALESFORCE</schemaName>
+        <type>INDEX</type>
+      </indexID>
+    </constraint>
   </constraints>
   <indexes>
     <index>
       <name>AUDIT_TABLE_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>ID</expressionSource>
+          <expressionSource>AUDIT_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>

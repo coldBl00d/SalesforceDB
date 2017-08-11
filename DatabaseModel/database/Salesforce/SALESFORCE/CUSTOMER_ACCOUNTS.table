@@ -144,6 +144,21 @@
       </dataTypeUsage>
       <notNull>false</notNull>
     </column>
+    <column>
+      <name>PIC_ID</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.PKConstraint">
@@ -245,6 +260,32 @@
         <name>ADDRESS_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
           <name>ADDRESS</name>
+          <schemaName>SALESFORCE</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SALESFORCE</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>CUSTOMER_ACCOUNTS_PIC_FK4</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>PIC_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>CUSTOMER_ACCOUNTS</name>
+            <schemaName>SALESFORCE</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SALESFORCE</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>PICTURE_TABLE_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>PICTURE_TABLE</name>
           <schemaName>SALESFORCE</schemaName>
           <type>TABLE</type>
         </parent>

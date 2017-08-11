@@ -3,7 +3,7 @@
   <name>OPPORTUNITY</name>
   <columns>
     <column>
-      <name>ID</name>
+      <name>OPPORTUNITY_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -274,31 +274,45 @@
     </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.PKConstraint">
-      <name>OPPORTUNITY_PK</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>OPPORTUNITY</name>
-            <schemaName>SALESFORCE</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SALESFORCE</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>OPPORTUNITY_CHK1</name>
+      <checkCondition>OPPORTUNITY_WIN_PROB &gt;= 0 AND OPPORTUNITY_WIN_PROB &lt;= 100</checkCondition>
       <enabled>true</enabled>
-      <indexID class="oracle.javatools.db.NameBasedID">
-        <name>OPPORTUNITY_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>OPPORTUNITY</name>
-          <schemaName>SALESFORCE</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SALESFORCE</schemaName>
-        <type>INDEX</type>
-      </indexID>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>OPPORTUNITY_CHK2</name>
+      <checkCondition>SALES_STAGE IN (&apos;QUALIFICATION&apos;, &apos;OPPERTUNITY&apos;, &apos;BUILDING VISION&apos; , &apos;PRESENTATION&apos;, &apos;AGREEMENT&apos; , &apos;NEGOTIATION&apos;,&apos;CLOSED&apos;,&apos;FAILED&apos;)</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>OPPORTUNITY_CHK3</name>
+      <checkCondition>SALES_METHOD IN (&apos;STANDARD&apos;,&apos;CUSTOM&apos;)</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>OPPORTUNITY_CHK4</name>
+      <checkCondition>CHANNEL IN (&apos;DIRECT&apos;,&apos;INDIRECT&apos;)</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>OPPORTUNITY_CHK5</name>
+      <checkCondition>REVENUE&gt;=0</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>OPPORTUNITY_CHK6</name>
+      <checkCondition>BEST_CASE_REVENUE &gt;= 0 AND WORST_CASE_REVENUE &gt;= 0 AND BUDGET_AMOUNT &gt;= 0</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>OPPORTUNITY_CHK7</name>
+      <checkCondition>RISK_LEVEL IN (&apos;HIGH&apos;,&apos;MEDIUM&apos;,&apos;LOW&apos;)</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>OPPORTUNITY_CHK8</name>
+      <checkCondition>DECISION_LEVEL IN (&apos;HIGH&apos;,&apos;MEDIUM&apos;,&apos;LOW&apos;)</checkCondition>
+      <enabled>true</enabled>
     </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
       <name>CREATOR_ID_FK</name>
@@ -381,45 +395,31 @@
         <type>CONSTRAINT</type>
       </referenceID>
     </constraint>
-    <constraint class="oracle.javatools.db.CheckConstraint">
-      <name>OPPORTUNITY_CHK1</name>
-      <checkCondition>OPPORTUNITY_WIN_PROB &gt;= 0 AND OPPORTUNITY_WIN_PROB &lt;= 100</checkCondition>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>OPPORTUNITY_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>OPPORTUNITY_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>OPPORTUNITY</name>
+            <schemaName>SALESFORCE</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SALESFORCE</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
       <enabled>true</enabled>
-    </constraint>
-    <constraint class="oracle.javatools.db.CheckConstraint">
-      <name>OPPORTUNITY_CHK2</name>
-      <checkCondition>SALES_STAGE IN (&apos;QUALIFICATION&apos;, &apos;OPPERTUNITY&apos;, &apos;BUILDING VISION&apos; , &apos;PRESENTATION&apos;, &apos;AGREEMENT&apos; , &apos;NEGOTIATION&apos;,&apos;CLOSED&apos;,&apos;FAILED&apos;)</checkCondition>
-      <enabled>true</enabled>
-    </constraint>
-    <constraint class="oracle.javatools.db.CheckConstraint">
-      <name>OPPORTUNITY_CHK3</name>
-      <checkCondition>SALES_METHOD IN (&apos;STANDARD&apos;,&apos;CUSTOM&apos;)</checkCondition>
-      <enabled>true</enabled>
-    </constraint>
-    <constraint class="oracle.javatools.db.CheckConstraint">
-      <name>OPPORTUNITY_CHK4</name>
-      <checkCondition>CHANNEL IN (&apos;DIRECT&apos;,&apos;INDIRECT&apos;)</checkCondition>
-      <enabled>true</enabled>
-    </constraint>
-    <constraint class="oracle.javatools.db.CheckConstraint">
-      <name>OPPORTUNITY_CHK5</name>
-      <checkCondition>REVENUE&gt;=0</checkCondition>
-      <enabled>true</enabled>
-    </constraint>
-    <constraint class="oracle.javatools.db.CheckConstraint">
-      <name>OPPORTUNITY_CHK6</name>
-      <checkCondition>BEST_CASE_REVENUE &gt;= 0 AND WORST_CASE_REVENUE &gt;= 0 AND BUDGET_AMOUNT &gt;= 0</checkCondition>
-      <enabled>true</enabled>
-    </constraint>
-    <constraint class="oracle.javatools.db.CheckConstraint">
-      <name>OPPORTUNITY_CHK7</name>
-      <checkCondition>RISK_LEVEL IN (&apos;HIGH&apos;,&apos;MEDIUM&apos;,&apos;LOW&apos;)</checkCondition>
-      <enabled>true</enabled>
-    </constraint>
-    <constraint class="oracle.javatools.db.CheckConstraint">
-      <name>OPPORTUNITY_CHK8</name>
-      <checkCondition>DECISION_LEVEL IN (&apos;HIGH&apos;,&apos;MEDIUM&apos;,&apos;LOW&apos;)</checkCondition>
-      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.NameBasedID">
+        <name>OPPORTUNITY_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>OPPORTUNITY</name>
+          <schemaName>SALESFORCE</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SALESFORCE</schemaName>
+        <type>INDEX</type>
+      </indexID>
     </constraint>
   </constraints>
   <indexes>
@@ -427,7 +427,7 @@
       <name>OPPORTUNITY_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>ID</expressionSource>
+          <expressionSource>OPPORTUNITY_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>

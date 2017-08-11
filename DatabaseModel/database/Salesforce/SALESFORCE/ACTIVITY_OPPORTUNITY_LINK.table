@@ -1,10 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>CONTACT_TASK_LINK</name>
+  <name>ACTIVITY_OPPORTUNITY_LINK</name>
   <columns>
     <column>
-      <name>CONTACT_ID</name>
+      <name>ACTIVITY_ID</name>
       <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
+          </entry>
+        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
         </dataTypeID>
@@ -12,8 +18,14 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>TASK_ID</name>
+      <name>OPPORTUNITY_ID</name>
       <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">18</value>
+          </entry>
+        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
         </dataTypeID>
@@ -23,12 +35,12 @@
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.PKConstraint">
-      <name>CONTACT_TASK_LINK_PK</name>
+      <name>ACTIVITY_OPPORTUNITY_LINK_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>CONTACT_ID</name>
+          <name>ACTIVITY_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>CONTACT_TASK_LINK</name>
+            <name>ACTIVITY_OPPORTUNITY_LINK</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
@@ -36,9 +48,9 @@
           <type>COLUMN</type>
         </columnID>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>TASK_ID</name>
+          <name>OPPORTUNITY_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>CONTACT_TASK_LINK</name>
+            <name>ACTIVITY_OPPORTUNITY_LINK</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
@@ -48,9 +60,9 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>CONTACT_TASK_LINK_PK</name>
+        <name>ACTIVITY_OPPORTUNITY_LINK_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>CONTACT_TASK_LINK</name>
+          <name>ACTIVITY_OPPORTUNITY_LINK</name>
           <schemaName>SALESFORCE</schemaName>
           <type>TABLE</type>
         </parent>
@@ -59,12 +71,12 @@
       </indexID>
     </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
-      <name>CONTACT_TASK_LINK_FK1</name>
+      <name>ACTIVITY_OPPORTUNITY_LINK_FK1</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>TASK_ID</name>
+          <name>ACTIVITY_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>CONTACT_TASK_LINK</name>
+            <name>ACTIVITY_OPPORTUNITY_LINK</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
@@ -73,11 +85,10 @@
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
-      <onDeleteAction>CASCADE</onDeleteAction>
       <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>TASK_PK</name>
+        <name>ACTIVITY_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>TASK</name>
+          <name>ACTIVITY</name>
           <schemaName>SALESFORCE</schemaName>
           <type>TABLE</type>
         </parent>
@@ -86,12 +97,12 @@
       </referenceID>
     </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
-      <name>CONTACT_TASK_LINK_FK2</name>
+      <name>ACTIVITY_OPPORTUNITY_LINK_FK2</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>CONTACT_ID</name>
+          <name>OPPORTUNITY_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>CONTACT_TASK_LINK</name>
+            <name>ACTIVITY_OPPORTUNITY_LINK</name>
             <schemaName>SALESFORCE</schemaName>
             <type>TABLE</type>
           </parent>
@@ -100,11 +111,10 @@
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
-      <onDeleteAction>CASCADE</onDeleteAction>
       <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>CONTACTS_PK</name>
+        <name>OPPORTUNITY_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>CONTACTS</name>
+          <name>OPPORTUNITY</name>
           <schemaName>SALESFORCE</schemaName>
           <type>TABLE</type>
         </parent>
@@ -115,14 +125,14 @@
   </constraints>
   <indexes>
     <index>
-      <name>CONTACT_TASK_LINK_PK</name>
+      <name>ACTIVITY_OPPORTUNITY_LINK_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>CONTACT_ID</expressionSource>
+          <expressionSource>ACTIVITY_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
         <columnExpression>
-          <expressionSource>TASK_ID</expressionSource>
+          <expressionSource>OPPORTUNITY_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>

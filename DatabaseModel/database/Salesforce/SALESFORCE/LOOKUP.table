@@ -3,7 +3,7 @@
   <name>LOOKUP</name>
   <columns>
     <column>
-      <name>ID</name>
+      <name>LOOKUP_ID</name>
       <dataTypeUsage>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
@@ -47,7 +47,7 @@
       <name>LOOKUP_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>ID</name>
+          <name>LOOKUP_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>LOOKUP</name>
             <schemaName>SALESFORCE</schemaName>
@@ -75,7 +75,7 @@
       <name>LOOKUP_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>ID</expressionSource>
+          <expressionSource>LOOKUP_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>

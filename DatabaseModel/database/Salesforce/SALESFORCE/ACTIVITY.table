@@ -112,7 +112,7 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>A_APP_LOCATION</name>
+      <name>A_APP_LOCATION_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -192,6 +192,90 @@
     </column>
   </columns>
   <constraints>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>ACTIVITY_CHK1</name>
+      <checkCondition>START_DATE_TIME&lt;END_DUE_DATE_TIME
+</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>ACTIVITY_ADDRESS_FK1</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>A_APP_LOCATION_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>ACTIVITY</name>
+            <schemaName>SALESFORCE</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SALESFORCE</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>ADDRESS_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>ADDRESS</name>
+          <schemaName>SALESFORCE</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SALESFORCE</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>ACTIVITY_ASSIGNEE_FK2</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>A_TASK_ASSIGNEE_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>ACTIVITY</name>
+            <schemaName>SALESFORCE</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SALESFORCE</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>USERACCOUNTS_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>USERS</name>
+          <schemaName>SALESFORCE</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SALESFORCE</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>ACTIVITY_CREATOR_FK3</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>A_CREATOR_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>ACTIVITY</name>
+            <schemaName>SALESFORCE</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SALESFORCE</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>USERACCOUNTS_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>USERS</name>
+          <schemaName>SALESFORCE</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SALESFORCE</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
     <constraint class="oracle.javatools.db.PKConstraint">
       <name>ACTIVITY_PK</name>
       <columnIDs>
